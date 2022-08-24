@@ -87,4 +87,9 @@ module "capa" {
   ssh_private_key_pem        = tls_private_key.global_key.private_key_pem
   k3s_kubernetes_version     = var.k3s_kubernetes_version
   capa_version               = var.capa_version
+
+  aws_access_key    = var.aws_access_key
+  aws_secret_key    = var.aws_secret_key
+  aws_session_token = var.aws_session_token
+  aws_region        = var.aws_region
 }
