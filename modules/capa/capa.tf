@@ -8,7 +8,7 @@ resource "ssh_resource" "install_capa" {
     "chmod +x clusterawsadm",
     "sudo mv clusterawsadm /usr/local/bin"
   ]
-  commands = ["clusterawsadm version"]
+  commands    = ["clusterawsadm version"]
   user        = var.node_username
   private_key = var.ssh_private_key_pem
 }
