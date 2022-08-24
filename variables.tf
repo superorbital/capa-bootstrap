@@ -49,5 +49,5 @@ variable "capa_version" {
 }
 
 locals {
-  node_username = "ec2-user"
+  node_username = "ubuntu"
 }
