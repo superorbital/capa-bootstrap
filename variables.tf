@@ -48,6 +48,12 @@ variable "capa_version" {
   default     = "v1.5.0"
 }
 
+variable "capi_version" {
+  type        = string
+  description = "Cluster API version (format v0.0.0)"
+  default     = "v1.2.1"
+}
+
 locals {
   node_username = "ubuntu"
 }

@@ -59,3 +59,9 @@ variable "capa_version" {
   description = "Cluster API Provider AWS version (format v0.0.0)"
   default     = "v1.5.0"
 }
+
+variable "capi_version" {
+  type        = string
+  description = "Cluster API version (format v0.0.0)"
+  default     = "v1.2.1"
+}

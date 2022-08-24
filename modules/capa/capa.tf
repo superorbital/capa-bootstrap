@@ -4,6 +4,9 @@ resource "ssh_resource" "install_capa" {
   ]
   host = var.node_public_ip
   pre_commands = [
+    "curl -L https://github.com/kubernetes-sigs/cluster-api/releases/download/${var.capi_version}/clusterctl-linux-amd64 -o clusterctl",
+    "chmod +x ./clusterctl",
+    "sudo mv ./clusterctl /usr/local/bin/clusterctl",
     "curl -L https://github.com/kubernetes-sigs/cluster-api-provider-aws/releases/download/${var.capa_version}/clusterawsadm-linux-amd64 -o clusterawsadm",
     "chmod +x clusterawsadm",
     "sudo mv clusterawsadm /usr/local/bin"
