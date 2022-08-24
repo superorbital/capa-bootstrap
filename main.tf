@@ -76,3 +76,15 @@ resource "aws_instance" "capa_server" {
     Owner = "capa-bootstrap"
   }
 }
+
+# Cluster API AWS resources
+module "capa" {
+  source = "./modules/capa"
+
+  node_public_ip             = aws_instance.capa_server.public_ip
+  node_internal_ip           = aws_instance.capa_server.private_ip
+  node_username              = local.node_username
+  ssh_private_key_pem        = tls_private_key.global_key.private_key_pem
+  k3s_kubernetes_version     = var.k3s_kubernetes_version
+  capa_version               = var.capa_version
+}
