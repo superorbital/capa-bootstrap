@@ -33,13 +33,13 @@ variable "prefix" {
 variable "instance_type" {
   type        = string
   description = "Instance type used for all EC2 instances"
-  default     = "t3a.medium"
+  default     = "m5a.large"
 }
 
 variable "k3s_kubernetes_version" {
   type        = string
-  description = "Kubernetes version to use for Rancher server cluster"
-  default     = "v1.24.3+k3s1"
+  description = "Kubernetes version to use for k3s management cluster"
+  default     = "v1.25.2+k3s1"
 }
 
 variable "capa_version" {
@@ -51,7 +51,7 @@ variable "capa_version" {
 variable "capi_version" {
   type        = string
   description = "Cluster API version (format v0.0.0)"
-  default     = "v1.2.1"
+  default     = "v1.2.2"
 }
 
 locals {
