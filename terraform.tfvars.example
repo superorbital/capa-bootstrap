@@ -1,0 +1,27 @@
+
+# AWS access key used to create infrastructure.
+aws_access_key = ""
+
+# AWS secret key used to create AWS infrastructure.
+aws_secret_key = ""
+
+# AWS region used for all resources.
+aws_region = "us-east-1"
+
+# AWS session token used to create AWS infrastructure.
+aws_session_token = ""
+
+# The prefix used to name resources created for the management cluster.
+prefix = "superorbital-quickstart"
+
+# The instance type used when creating the management cluster.
+instance_type = "m5a.large"
+
+# The K3S kubernetes version used for the management cluster. 
+k3s_kubernetes_version = "v1.25.2+k3s1"
+
+# The Cluster API AWS controller version installed in the management cluster.
+capa_version = "v1.5.0"
+
+# The base Cluster API controller version installed in the management cluster.
+capi_version = "v1.2.2"
