@@ -3,7 +3,9 @@ resource "ssh_resource" "install_capa" {
     ssh_resource.install_k3s
   ]
   triggers = {
-    bootstrap_config_contents = filesha256("./modules/capa/config/bootstrap-iam-configuration.yaml")
+    bootstrap_config_contents = filesha256("${path.module}/config/bootstrap-iam-configuration.yaml")
+    aws_config_tpl_contents   = filesha256("${path.module}/config/aws-config.tftpl")
+    aws_creds_tpl_contents    = filesha256("${path.module}/config/aws-credentials.tftpl")
   }
 
   host        = var.node_public_ip
@@ -11,9 +13,21 @@ resource "ssh_resource" "install_capa" {
   private_key = var.ssh_private_key_pem
 
   file {
-    source      = "./modules/capa/config/bootstrap-iam-configuration.yaml"
+    source      = "${path.module}/config/bootstrap-iam-configuration.yaml"
     permissions = "0644"
     destination = "/tmp/bootstrap-config.yaml"
+  }
+
+  file {
+    content     = templatefile("${path.module}/config/aws-config.tftpl", { aws_region = var.aws_region })
+    permissions = "0600"
+    destination = "/home/${var.node_username}/.aws/config"
+  }
+
+  file {
+    content     = templatefile("${path.module}/config/aws-credentials.tftpl", { aws_access_key = var.aws_access_key, aws_secret_key = var.aws_secret_key })
+    permissions = "0600"
+    destination = "/home/${var.node_username}/.aws/credentials"
   }
 
   pre_commands = [
@@ -23,9 +37,6 @@ resource "ssh_resource" "install_capa" {
     "curl -L https://github.com/kubernetes-sigs/cluster-api-provider-aws/releases/download/${var.capa_version}/clusterawsadm-linux-amd64 -o clusterawsadm",
     "chmod +x clusterawsadm",
     "sudo mv clusterawsadm /usr/local/bin",
-    "mkdir -p .aws",
-    "echo -e '[default] \nregion = ${var.aws_region} \noutput = json' > .aws/config",
-    "echo -e '[default] \naws_access_key_id = ${var.aws_access_key} \naws_secret_access_key = ${var.aws_secret_key}' > .aws/credentials",
     "sudo cp /etc/rancher/k3s/k3s.yaml /tmp/k.yaml",
     "sudo chown ${var.node_username}:${var.node_username} /tmp/k.yaml"
   ]
