@@ -1,0 +1,47 @@
+apiVersion: bootstrap.aws.infrastructure.cluster.x-k8s.io/v1beta1
+kind: AWSIAMConfiguration
+spec:
+  # Adds the following suffix to all roles and instance profiles created in
+  # the cloudformation stack.
+  nameSuffix: .cluster-api-provider-aws.sigs.k8s.io
+  clusterAPIControllers:
+    disable: false
+  controlPlane:
+    disable: false
+    disableCloudProviderPolicy: false
+    enableCSIPolicy: false
+  # NB: Bootstrap user is deprecated and should only be used if it was needed
+  # by earlier versions of CAPA.
+  bootstrapUser:
+    enable: false
+    userName: bootstrapper.cluster-api-provider-aws.sigs.k8s.io
+  eks:
+    # Enable EKS support.
+    disable: false
+    defaultControlPlaneRole:
+      disable: false
+    # KMS alias prefix for secrets encryption if enabled on an EKS cluster.
+    kmsAliasPrefix: cluster-api-provider-aws-*
+    # Additional features:
+    # Allows the use the EKSEnableIAM feature flag for the automatic creation
+    # of IAM roles.
+    iamRoleCreation: false
+    # Allows the use the EKSFargate feature flag for the automatic creation of
+    # fargate profiles.
+    fargate:
+      disable: true
+    # Enables creation of the default node role for managed machine pools.
+    managedMachinePool:
+      disable: false
+  eventBridge: {}
+  nodes:
+    disable: false
+    disableCloudProviderPolicy: false
+    ec2ContainerRegistryReadOnly: false
+  partition: aws
+  s3Buckets:
+    enable: false
+    namePrefix: cluster-api-provider-aws-
+  secureSecretBackends:
+  - secrets-manager
+  stackName: cluster-api-provider-aws-sigs-k8s-io                                        

@@ -2,7 +2,20 @@ resource "ssh_resource" "install_capa" {
   depends_on = [
     ssh_resource.install_k3s
   ]
-  host = var.node_public_ip
+  triggers = {
+    bootstrap_config_contents = filesha256("./modules/capa/config/bootstrap-iam-configuration.yaml")
+  }
+
+  host        = var.node_public_ip
+  user        = var.node_username
+  private_key = var.ssh_private_key_pem
+
+  file {
+    source      = "./modules/capa/config/bootstrap-iam-configuration.yaml"
+    permissions = "0644"
+    destination = "/tmp/bootstrap-config.yaml"
+  }
+
   pre_commands = [
     "curl -L https://github.com/kubernetes-sigs/cluster-api/releases/download/${var.capi_version}/clusterctl-linux-amd64 -o clusterctl",
     "chmod +x ./clusterctl",
@@ -18,13 +31,10 @@ resource "ssh_resource" "install_capa" {
   ]
 
   commands = [
-    "clusterawsadm bootstrap iam create-cloudformation-stack",
+    "clusterawsadm bootstrap iam create-cloudformation-stack --config=/tmp/bootstrap-config.yaml",
     <<EOT
     export AWS_B64ENCODED_CREDENTIALS=$(clusterawsadm bootstrap credentials encode-as-profile)
     clusterctl init --infrastructure aws --kubeconfig=/tmp/k.yaml
     EOT
   ]
-
-  user        = var.node_username
-  private_key = var.ssh_private_key_pem
 }
