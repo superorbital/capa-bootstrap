@@ -25,7 +25,7 @@ spec:
     # Additional features:
     # Allows the use the EKSEnableIAM feature flag for the automatic creation
     # of IAM roles.
-    iamRoleCreation: false
+    iamRoleCreation: true
     # Allows the use the EKSFargate feature flag for the automatic creation of
     # fargate profiles.
     fargate:
