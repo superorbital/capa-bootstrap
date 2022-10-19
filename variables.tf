@@ -51,7 +51,7 @@ variable "capa_version" {
 variable "capi_version" {
   type        = string
   description = "Cluster API version (format v0.0.0)"
-  default     = "v1.2.2"
+  default     = "v1.2.4"
 }
 
 locals {
