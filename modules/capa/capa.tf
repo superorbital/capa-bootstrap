@@ -3,6 +3,8 @@ resource "ssh_resource" "install_capa" {
     ssh_resource.install_k3s
   ]
   triggers = {
+    capi_version              = var.capi_version
+    capa_version              = var.capa_version
     bootstrap_config_contents = filesha256("${path.module}/config/bootstrap-iam-configuration.yaml")
     aws_config_tpl_contents   = filesha256("${path.module}/config/aws-config.tftpl")
     aws_creds_tpl_contents    = filesha256("${path.module}/config/aws-credentials.tftpl")
