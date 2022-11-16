@@ -39,7 +39,7 @@ variable "instance_type" {
 variable "k3s_kubernetes_version" {
   type        = string
   description = "Kubernetes version to use for k3s management cluster"
-  default     = "v1.25.2+k3s1"
+  default     = "v1.25.3+k3s1"
 }
 
 variable "capa_version" {
