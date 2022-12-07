@@ -54,6 +54,12 @@ variable "capi_version" {
   default     = "v1.2.5"
 }
 
+variable "experimental_features" {
+  type        = list(string)
+  description = "List of experimental CAPI features to enable, e.g. [\"EXP_CLUSTER_RESOURCE_SET: true\"]"
+  default     = []
+}
+
 locals {
   node_username = "ubuntu"
 }

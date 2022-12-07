@@ -88,6 +88,7 @@ module "capa" {
   k3s_kubernetes_version = var.k3s_kubernetes_version
   capa_version           = var.capa_version
   capi_version           = var.capi_version
+  experimental_features  = var.experimental_features
 
   aws_access_key    = var.aws_access_key
   aws_secret_key    = var.aws_secret_key
