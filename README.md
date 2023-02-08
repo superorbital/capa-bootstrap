@@ -16,7 +16,7 @@ is expected if the node is recreated for any reason.
 3. AWS credentials via an access key and a secret key (optionally a session token for multi-factor auth),
    with permissions to create EC2 instances.
 4. [SSH key](https://cluster-api-aws.sigs.k8s.io/topics/using-clusterawsadm-to-fulfill-prerequisites.html#ssh-key-pair) 
-   already present in the AWS account to use for node access
+   already present in the AWS account for CAPA to use for node access.
 
 ## Usage
 
