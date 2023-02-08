@@ -18,10 +18,10 @@ prefix = "superorbital-quickstart"
 instance_type = "m5a.large"
 
 # The K3S kubernetes version used for the management cluster. 
-k3s_kubernetes_version = "v1.25.2+k3s1"
+k3s_kubernetes_version = "v1.25.5+k3s2"
 
 # The Cluster API AWS controller version installed in the management cluster.
-capa_version = "v1.5.0"
+capa_version = "v2.0.2"
 
 # The base Cluster API controller version installed in the management cluster.
-capi_version = "v1.2.2"
+capi_version = "v1.3.2"
