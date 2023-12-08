@@ -4,7 +4,7 @@ The Cluster API AWS Boostrapper (or capa-bootstrap) is a Terraform-based tool
 that's used to quickly spin up a K3s-backed cluster on a single EC2 instance
 with Cluster API and Cluster API AWS installed and ready to be used.
 
-**WARNING** This is NOT meant to be production-ready! The single EC2 instance
+**WARNING:** This is NOT meant to be production-ready! The single EC2 instance
 is susceptible to downtime if any failure on the node occurs, and data loss
 is expected if the node is recreated for any reason.
 
@@ -99,7 +99,7 @@ directory, where one can modify some of the values and create a CAPA-managed
 cluster with complete visibility of the control plane, or a CAPA-managed EKS
 cluster where the control plane is managed by AWS.
 
-**WARNING** Clusters can be created by `kubectl apply`'ing the YAML files in
+**WARNING:** Clusters can be created by `kubectl apply`'ing the YAML files in
 the examples, however you should always clean up CAPA clusters by deleting the
 cluster object from the cluster:
 ```
