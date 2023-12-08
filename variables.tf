@@ -36,6 +36,12 @@ variable "instance_type" {
   default     = "m5a.large"
 }
 
+variable "ami_id" {
+  type        = string
+  description = "AMI ID to use for the management EC2 instance"
+  default     = ""
+}
+
 variable "k3s_kubernetes_version" {
   type        = string
   description = "Kubernetes version to use for k3s management cluster"

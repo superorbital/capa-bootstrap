@@ -46,7 +46,7 @@ resource "aws_security_group" "capa_bootstrap_sg_allowall" {
 
 # AWS EC2 instance for creating a single node cluster
 resource "aws_instance" "capa_server" {
-  ami           = data.aws_ami.latest_ubuntu.id
+  ami           = var.ami_id == "" ? data.aws_ami.latest_ubuntu.id : var.ami_id
   instance_type = var.instance_type
 
   key_name               = aws_key_pair.capa_bootstrap_key_pair.key_name

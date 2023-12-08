@@ -14,6 +14,9 @@ aws_session_token = ""
 # The prefix used to name resources created for the management cluster.
 prefix = "superorbital-quickstart"
 
+# AMI to use in the management node
+ami_id = "ami-0c7217cdde317cfec"
+
 # The instance type used when creating the management cluster.
 instance_type = "m5a.large"
 
