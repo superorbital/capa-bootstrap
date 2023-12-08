@@ -40,7 +40,7 @@ metadata:
 spec:
   region: us-east-1
   sshKeyName: default
-  version: v1.22.12
+  version: v1.28.3
   bastion:
     enabled: false
     allowedCIDRBlocks:
@@ -51,6 +51,10 @@ spec:
     disable: false
   endpointAccess: {}
   iamAuthenticatorConfig: {}
+  network:
+    vpc:
+      availabilityZoneUsageLimit: 3
+      availabilityZoneSelection: Random
 ---
 apiVersion: cluster.x-k8s.io/v1beta1
 kind: MachineDeployment
@@ -74,7 +78,7 @@ spec:
         apiVersion: infrastructure.cluster.x-k8s.io/v1beta2
         kind: AWSMachineTemplate
         name: eks-cluster-1-md-0
-      version: v1.22.12
+      version: v1.28.3
 ---
 apiVersion: infrastructure.cluster.x-k8s.io/v1beta2
 kind: AWSMachineTemplate
