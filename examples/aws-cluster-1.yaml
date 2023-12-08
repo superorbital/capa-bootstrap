@@ -64,7 +64,7 @@ spec:
       kind: AWSMachineTemplate
       name: aws-cluster-1-control-plane
   replicas: 3
-  version: v1.24.3
+  version: v1.28.3
 ---
 apiVersion: infrastructure.cluster.x-k8s.io/v1beta1
 kind: AWSMachineTemplate
@@ -100,7 +100,7 @@ spec:
         apiVersion: infrastructure.cluster.x-k8s.io/v1beta1
         kind: AWSMachineTemplate
         name: aws-cluster-1-md-0
-      version: v1.24.3
+      version: v1.28.3
 ---
 apiVersion: infrastructure.cluster.x-k8s.io/v1beta1
 kind: AWSMachineTemplate
