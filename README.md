@@ -18,6 +18,65 @@ is expected if the node is recreated for any reason.
 4. [SSH key](https://cluster-api-aws.sigs.k8s.io/topics/using-clusterawsadm-to-fulfill-prerequisites.html#ssh-key-pair) 
    already present in the AWS account for CAPA to use for node access.
 
+<!-- BEGIN_TF_DOCS -->
+## Requirements
+
+| Name | Version |
+|------|---------|
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.0.0 |
+| <a name="requirement_aws"></a> [aws](#requirement\_aws) | ~> 5.30 |
+| <a name="requirement_local"></a> [local](#requirement\_local) | ~> 2.4 |
+| <a name="requirement_tls"></a> [tls](#requirement\_tls) | ~> 4.0 |
+
+## Providers
+
+| Name | Version |
+|------|---------|
+| <a name="provider_aws"></a> [aws](#provider\_aws) | 5.30.0 |
+| <a name="provider_local"></a> [local](#provider\_local) | 2.4.0 |
+| <a name="provider_tls"></a> [tls](#provider\_tls) | 4.0.5 |
+
+## Modules
+
+| Name | Source | Version |
+|------|--------|---------|
+| <a name="module_capa"></a> [capa](#module\_capa) | ./modules/capa | n/a |
+
+## Resources
+
+| Name | Type |
+|------|------|
+| [aws_instance.capa_server](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/instance) | resource |
+| [aws_key_pair.capa_bootstrap_key_pair](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/key_pair) | resource |
+| [aws_security_group.capa_bootstrap_sg_allowall](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/security_group) | resource |
+| [local_file.ssh_public_key_openssh](https://registry.terraform.io/providers/hashicorp/local/latest/docs/resources/file) | resource |
+| [local_sensitive_file.ssh_private_key_pem](https://registry.terraform.io/providers/hashicorp/local/latest/docs/resources/sensitive_file) | resource |
+| [tls_private_key.global_key](https://registry.terraform.io/providers/hashicorp/tls/latest/docs/resources/private_key) | resource |
+| [aws_ami.latest_ubuntu](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/ami) | data source |
+
+## Inputs
+
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:--------:|
+| <a name="input_ami_id"></a> [ami\_id](#input\_ami\_id) | AMI ID to use for the management EC2 instance | `string` | `""` | no |
+| <a name="input_aws_access_key"></a> [aws\_access\_key](#input\_aws\_access\_key) | AWS access key used for account access | `string` | n/a | yes |
+| <a name="input_aws_region"></a> [aws\_region](#input\_aws\_region) | AWS region used for all resources | `string` | `"us-east-1"` | no |
+| <a name="input_aws_secret_key"></a> [aws\_secret\_key](#input\_aws\_secret\_key) | AWS secret key used for account access | `string` | n/a | yes |
+| <a name="input_aws_session_token"></a> [aws\_session\_token](#input\_aws\_session\_token) | AWS session token for account access (if using MFA) | `string` | `""` | no |
+| <a name="input_capa_version"></a> [capa\_version](#input\_capa\_version) | Cluster API Provider AWS version (format: v0.0.0) | `string` | `"v2.3.0"` | no |
+| <a name="input_capi_version"></a> [capi\_version](#input\_capi\_version) | Cluster API version (format v0.0.0) | `string` | `"v1.6.0"` | no |
+| <a name="input_experimental_features"></a> [experimental\_features](#input\_experimental\_features) | List of experimental CAPI features to enable, e.g. ["EXP\_CLUSTER\_RESOURCE\_SET: true"] | `list(string)` | `[]` | no |
+| <a name="input_instance_type"></a> [instance\_type](#input\_instance\_type) | Instance type used for all EC2 instances | `string` | `"m5a.large"` | no |
+| <a name="input_k3s_kubernetes_version"></a> [k3s\_kubernetes\_version](#input\_k3s\_kubernetes\_version) | Kubernetes version to use for k3s management cluster | `string` | `"v1.28.4+k3s2"` | no |
+| <a name="input_prefix"></a> [prefix](#input\_prefix) | Prefix added to names of all resources | `string` | `"superorbital-quickstart"` | no |
+
+## Outputs
+
+| Name | Description |
+|------|-------------|
+| <a name="output_capa_node_ip"></a> [capa\_node\_ip](#output\_capa\_node\_ip) | n/a |
+<!-- END_TF_DOCS -->
+
 ## Usage
 
 ### Creating the management cluster
