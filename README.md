@@ -10,9 +10,8 @@ is expected if the node is recreated for any reason.
 
 ## Prerequisites
 
-1. [Terraform](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli) 
-   (any version greater than v1.0.0)
-2. [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/) installed your local terminal
+1. [Terraform](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli)
+2. [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/) installed your local terminal.
 3. AWS credentials via an access key and a secret key (optionally a session token for multi-factor auth),
    with permissions to create EC2 instances.
 4. [SSH key](https://cluster-api-aws.sigs.k8s.io/topics/using-clusterawsadm-to-fulfill-prerequisites.html#ssh-key-pair) 
@@ -74,7 +73,7 @@ is expected if the node is recreated for any reason.
 
 | Name | Description |
 |------|-------------|
-| <a name="output_capa_node_ip"></a> [capa\_node\_ip](#output\_capa\_node\_ip) | n/a |
+| <a name="output_capa_node_ip"></a> [capa\_node\_ip](#output\_capa\_node\_ip) | Public IP address of the CAPA management node. Useful for SSH purposes. |
 <!-- END_TF_DOCS -->
 
 ## Usage
@@ -83,7 +82,7 @@ is expected if the node is recreated for any reason.
 
 1. Provide the AWS authentication data for the configuration:
   - Via a tfvars file:
-    1. Create a copy of the (example .tfvars file)[./terraform.tfvars.example]
+    1. Create a copy of the [example .tfvars file](./terraform.tfvars.example)
        provided in the root directory of this repo, and name it "terraform.tfvars".
     2. Fill the `aws_access_key` and `aws_secret_key` variables with appropriate
        key data, and modify any other variables from their defaults as you see fit.
