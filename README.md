@@ -18,6 +18,9 @@ is expected if the node is recreated for any reason.
 4. [SSH key](https://cluster-api-aws.sigs.k8s.io/topics/using-clusterawsadm-to-fulfill-prerequisites.html#ssh-key-pair) 
    already present in the AWS account for CAPA to use for node access.
 
+<!-- BEGIN_TF_DOCS -->
+<!-- END_TF_DOCS -->
+
 ## Usage
 
 ### Creating the management cluster
