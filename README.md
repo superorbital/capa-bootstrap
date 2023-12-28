@@ -73,7 +73,7 @@ is expected if the node is recreated for any reason.
 
 | Name | Description |
 |------|-------------|
-| <a name="output_capa_node_ip"></a> [capa\_node\_ip](#output\_capa\_node\_ip) | n/a |
+| <a name="output_capa_node_ip"></a> [capa\_node\_ip](#output\_capa\_node\_ip) | Public IP address of the CAPA management node. Useful for SSH purposes. |
 <!-- END_TF_DOCS -->
 
 ## Usage
