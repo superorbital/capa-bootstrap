@@ -45,19 +45,19 @@ variable "ami_id" {
 variable "k3s_kubernetes_version" {
   type        = string
   description = "Kubernetes version to use for k3s management cluster"
-  default     = "v1.28.4+k3s2"
+  default     = "v1.28.6+k3s2"
 }
 
 variable "capa_version" {
   type        = string
   description = "Cluster API Provider AWS version (format: v0.0.0)"
-  default     = "v2.3.0"
+  default     = "v2.3.1"
 }
 
 variable "capi_version" {
   type        = string
   description = "Cluster API version (format v0.0.0)"
-  default     = "v1.6.0"
+  default     = "v1.6.1"
 }
 
 variable "experimental_features" {
