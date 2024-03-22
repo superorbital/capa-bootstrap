@@ -51,19 +51,19 @@ variable "ssh_private_key_pem" {
 variable "k3s_kubernetes_version" {
   type        = string
   description = "Kubernetes version to use for k3s management cluster"
-  default     = "v1.28.6+k3s2"
+  default     = "v1.29.2+k3s1"
 }
 
 variable "capa_version" {
   type        = string
   description = "Cluster API Provider AWS version (format: v0.0.0)"
-  default     = "v2.3.1"
+  default     = "v2.4.1"
 }
 
 variable "capi_version" {
   type        = string
   description = "Cluster API version (format v0.0.0)"
-  default     = "v1.6.1"
+  default     = "v1.6.3"
 }
 
 variable "experimental_features" {
