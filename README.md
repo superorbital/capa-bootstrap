@@ -64,7 +64,7 @@ is expected if the node is recreated for any reason.
 | <a name="input_aws_session_token"></a> [aws\_session\_token](#input\_aws\_session\_token) | AWS session token for account access (if using MFA) | `string` | `""` | no |
 | <a name="input_capa_version"></a> [capa\_version](#input\_capa\_version) | Cluster API Provider AWS version (format: v0.0.0) | `string` | `"v2.4.1"` | no |
 | <a name="input_capi_version"></a> [capi\_version](#input\_capi\_version) | Cluster API version (format v0.0.0) | `string` | `"v1.6.3"` | no |
-| <a name="input_experimental_features"></a> [experimental\_features](#input\_experimental\_features) | List of experimental CAPI features to enable, e.g. ["EXP\_CLUSTER\_RESOURCE\_SET: true"] | `list(string)` | `[]` | no |
+| <a name="input_experimental_features"></a> [experimental\_features](#input\_experimental\_features) | List of experimental CAPI features to enable, e.g. ["EXP\_CLUSTER\_RESOURCE\_SET: true"] | `list(string)` | <pre>[<br>  "EXP_CLUSTER_RESOURCE_SET: true"<br>]</pre> | no |
 | <a name="input_instance_type"></a> [instance\_type](#input\_instance\_type) | Instance type used for all EC2 instances | `string` | `"m5a.large"` | no |
 | <a name="input_k3s_kubernetes_version"></a> [k3s\_kubernetes\_version](#input\_k3s\_kubernetes\_version) | Kubernetes version to use for k3s management cluster | `string` | `"v1.29.2+k3s1"` | no |
 | <a name="input_prefix"></a> [prefix](#input\_prefix) | Prefix added to names of all resources | `string` | `"superorbital-quickstart"` | no |

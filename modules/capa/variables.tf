@@ -69,5 +69,5 @@ variable "capi_version" {
 variable "experimental_features" {
   type        = list(string)
   description = "List of experimental CAPI features to enable, e.g. [\"EXP_CLUSTER_RESOURCE_SET: true\"]"
-  default     = []
+  default     = ["EXP_CLUSTER_RESOURCE_SET: true"]
 }
