@@ -31,8 +31,8 @@ is expected if the node is recreated for any reason.
 
 | Name | Version |
 |------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | 5.30.0 |
-| <a name="provider_local"></a> [local](#provider\_local) | 2.4.0 |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | 5.42.0 |
+| <a name="provider_local"></a> [local](#provider\_local) | 2.5.1 |
 | <a name="provider_tls"></a> [tls](#provider\_tls) | 4.0.5 |
 
 ## Modules
@@ -62,11 +62,11 @@ is expected if the node is recreated for any reason.
 | <a name="input_aws_region"></a> [aws\_region](#input\_aws\_region) | AWS region used for all resources | `string` | `"us-east-1"` | no |
 | <a name="input_aws_secret_key"></a> [aws\_secret\_key](#input\_aws\_secret\_key) | AWS secret key used for account access | `string` | n/a | yes |
 | <a name="input_aws_session_token"></a> [aws\_session\_token](#input\_aws\_session\_token) | AWS session token for account access (if using MFA) | `string` | `""` | no |
-| <a name="input_capa_version"></a> [capa\_version](#input\_capa\_version) | Cluster API Provider AWS version (format: v0.0.0) | `string` | `"v2.3.0"` | no |
-| <a name="input_capi_version"></a> [capi\_version](#input\_capi\_version) | Cluster API version (format v0.0.0) | `string` | `"v1.6.0"` | no |
+| <a name="input_capa_version"></a> [capa\_version](#input\_capa\_version) | Cluster API Provider AWS version (format: v0.0.0) | `string` | `"v2.4.1"` | no |
+| <a name="input_capi_version"></a> [capi\_version](#input\_capi\_version) | Cluster API version (format v0.0.0) | `string` | `"v1.6.3"` | no |
 | <a name="input_experimental_features"></a> [experimental\_features](#input\_experimental\_features) | List of experimental CAPI features to enable, e.g. ["EXP\_CLUSTER\_RESOURCE\_SET: true"] | `list(string)` | `[]` | no |
 | <a name="input_instance_type"></a> [instance\_type](#input\_instance\_type) | Instance type used for all EC2 instances | `string` | `"m5a.large"` | no |
-| <a name="input_k3s_kubernetes_version"></a> [k3s\_kubernetes\_version](#input\_k3s\_kubernetes\_version) | Kubernetes version to use for k3s management cluster | `string` | `"v1.28.4+k3s2"` | no |
+| <a name="input_k3s_kubernetes_version"></a> [k3s\_kubernetes\_version](#input\_k3s\_kubernetes\_version) | Kubernetes version to use for k3s management cluster | `string` | `"v1.29.2+k3s1"` | no |
 | <a name="input_prefix"></a> [prefix](#input\_prefix) | Prefix added to names of all resources | `string` | `"superorbital-quickstart"` | no |
 
 ## Outputs
